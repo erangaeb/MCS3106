@@ -15,35 +15,30 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mcs.assignment.R;
 import com.mcs.assignment.adapters.DrawerAdapter;
 import com.mcs.assignment.pojos.DrawerItem;
-import com.mcs.assignment.utils.ActivityUtils;
 
 import java.util.ArrayList;
 
 /**
- * Activity class of MPower Home,
+ * Activity class of MCS3106 Home,
  * Create navigation drawer here
  *
- * @author eranga herath(eranga.herath@pagero.com)
+ * @author eranga herath(erangaeb@gmail.com)
  */
-public class HomeActivity extends FragmentActivity implements View.OnClickListener {
+public class HomeActivity extends FragmentActivity {
 
     // UI components
     private ListView drawerListView;
     private DrawerLayout drawerLayout;
     private RelativeLayout drawerContainer;
-    private RelativeLayout logout;
     private HomeActionBarDrawerToggle homeActionBarDrawerToggle;
 
     // drawer components
     private ArrayList<DrawerItem> drawerItemList;
     private DrawerAdapter drawerAdapter;
-
-    static final String TAG = HomeActivity.class.getName();
 
     /**
      * {@inheritDoc}
@@ -117,8 +112,6 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerContainer = (RelativeLayout) findViewById(R.id.drawer_container);
-        logout = (RelativeLayout) findViewById(R.id.home_logout);
-        logout.setOnClickListener(this);
 
         // set custom sign out button
         TextView signOutTextView = (TextView) findViewById(R.id.sign_out_text);
@@ -137,8 +130,8 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
      */
     private void initDrawerList() {
         // initialize drawer content
-        // need to determine selected item according to the currently selected sensor type
-        drawerItemList = new ArrayList<DrawerItem>();
+        // need to determine selected item according to the currently selected
+        drawerItemList = new ArrayList();
         drawerItemList.add(new DrawerItem("Assignment1", true));
         drawerItemList.add(new DrawerItem("Assignment2", false));
         drawerItemList.add(new DrawerItem("Assignment3", false));
@@ -156,11 +149,6 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
             drawerListView.setAdapter(drawerAdapter);
 
         drawerListView.setOnItemClickListener(new DrawerItemClickListener());
-    }
-
-    @Override
-    public void onClick(View v) {
-
     }
 
     /**
@@ -231,7 +219,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                 getActionBar().setTitle("Assignment8");
                 loadAssignment8();
             } else if (position == 8) {
-                drawerItemList.get(7).setSelected(true);
+                drawerItemList.get(8).setSelected(true);
                 getActionBar().setTitle("Assignment9");
                 loadAssignment9();
             }

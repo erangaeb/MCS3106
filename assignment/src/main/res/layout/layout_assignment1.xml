@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#ffffff"
@@ -9,157 +8,125 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:padding="10dp"
-        android:background="#e5e5e5"
-        android:layout_weight="1"
         android:layout_height="fill_parent"
-        android:orientation="vertical">
+        android:layout_weight="1"
+        android:background="#e5e5e5"
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/list_row_background"
-                android:orientation="vertical"
-                android:layout_marginBottom="10dp">
-
-            <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:visibility="gone"
-                    android:layout_height="45dp">
-
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:textColor="#4a4a4a"
-                        android:layout_marginLeft="15dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:id="@+id/sensor_list_row_layout_sensor_name"
-                        android:text="Email">
-                </TextView>
-
-                <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_alignParentBottom="true"
-                        android:background="#cdcbcb">
-                </TextView>
-
-            </RelativeLayout>
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/list_row_background"
+            android:orientation="vertical">
 
             <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:orientation="vertical">
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/assignment1_name_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="Name"
                     android:textColor="#4a4a4a"
-                    android:id="@+id/assignment1_name_label"
-                    android:text="Name">
-                </TextView>
+                    android:textSize="18sp"></TextView>
 
                 <EditText
-                        android:id="@+id/assignment1_name_text"
-                        android:layout_width="fill_parent"
-                        android:layout_height="45dp"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
+                    android:id="@+id/assignment1_name_text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/edit_text_shape"
                     android:editable="false"
                     android:focusable="false"
                     android:focusableInTouchMode="false"
+                    android:inputType="text"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
                     android:text="Eranga Bandara Herath"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        android:textCursorDrawable="@null"
-                        android:background="@drawable/edit_text_shape"
-                        android:inputType="text"
-                        android:textColor="#4a4a4a"
-                        android:textSize="16sp">
-                </EditText>
+                    android:textColor="#4a4a4a"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp"></EditText>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/assignment1_index_no_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="Index No"
                     android:textColor="#4a4a4a"
-                    android:id="@+id/assignment1_index_no_label"
-                    android:text="Index No">
-                </TextView>
+                    android:textSize="18sp"></TextView>
 
                 <EditText
                     android:id="@+id/assignment1_index_no_text"
                     android:layout_width="fill_parent"
                     android:layout_height="45dp"
-                    android:paddingLeft="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/edit_text_shape"
                     android:editable="false"
                     android:focusable="false"
                     android:focusableInTouchMode="false"
-                    android:text="13440277"
-                    android:paddingRight="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:textCursorDrawable="@null"
-                    android:background="@drawable/edit_text_shape"
                     android:inputType="text"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="13440277"
                     android:textColor="#4a4a4a"
-                    android:textSize="16sp">
-                </EditText>
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp"></EditText>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/assignment1_email_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="Email"
                     android:textColor="#4a4a4a"
-                    android:id="@+id/assignment1_email_label"
-                    android:text="Email">
-                </TextView>
+                    android:textSize="18sp"></TextView>
 
                 <EditText
                     android:id="@+id/assignment1_email_text"
                     android:layout_width="fill_parent"
                     android:layout_height="45dp"
-                    android:paddingLeft="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/edit_text_shape"
                     android:editable="false"
                     android:focusable="false"
                     android:focusableInTouchMode="false"
-                    android:text="earngaeb@gmail.com"
-                    android:paddingRight="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:textCursorDrawable="@null"
-                    android:background="@drawable/edit_text_shape"
                     android:inputType="textEmailAddress"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="earngaeb@gmail.com"
                     android:textColor="#4a4a4a"
-                    android:textSize="16sp">
-                </EditText>
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp"></EditText>
             </LinearLayout>
 
         </LinearLayout>
