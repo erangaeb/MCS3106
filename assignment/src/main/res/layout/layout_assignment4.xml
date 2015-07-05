@@ -167,7 +167,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_centerInParent="true"
-                android:textSize="15sp"
+                android:textSize="16sp"
                 android:textColor="#FFF"
                 android:id="@+id/assignment4_add_button_text"
                 android:text="Add">
@@ -192,7 +192,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_centerInParent="true"
-                android:textSize="15sp"
+                android:textSize="16sp"
                 android:textColor="#FFF"
                 android:id="@+id/assignment4_subtract_button_text"
                 android:text="Subtract">

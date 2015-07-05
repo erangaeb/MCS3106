@@ -24,187 +24,186 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/logo_icon"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_margin="1dp"
-                android:id="@+id/logo_icon"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/wisaduma">
-            </Button>
+                android:layout_margin="1dp"
+                android:background="@drawable/wisaduma"></Button>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_marginTop="10dp"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="10dp"
-                android:layout_height="match_parent">
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
 
                 <RelativeLayout
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:id="@+id/latest_post"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/details_button_selector"
-                    android:clickable="true"
                     android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:id="@+id/latest_post">
+                    android:background="@drawable/details_button_selector"
+                    android:clickable="true">
+
                     <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:textSize="15sp"
-                        android:textColor="#FFF"
                         android:id="@+id/latest_post_text"
-                        android:text="Latest posts">
-                    </TextView>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Latest posts"
+                        android:textColor="#FFF"
+                        android:textSize="16sp"></TextView>
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:id="@+id/problems"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="4dp"
-                    android:background="@drawable/details_button_selector"
-                    android:clickable="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:id="@+id/problems">
+                    android:background="@drawable/details_button_selector"
+                    android:clickable="true">
+
                     <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:textSize="15sp"
-                        android:textColor="#FFF"
                         android:id="@+id/problems_text"
-                        android:text="Problems">
-                    </TextView>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Problems"
+                        android:textColor="#FFF"
+                        android:textSize="16sp"></TextView>
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:id="@+id/news_and_events"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="4dp"
-                    android:background="@drawable/details_button_selector"
-                    android:clickable="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:id="@+id/news_and_events">
+                    android:background="@drawable/details_button_selector"
+                    android:clickable="true">
+
                     <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:textSize="15sp"
-                        android:textColor="#FFF"
                         android:id="@+id/news_and_events_text"
-                        android:text="News and events">
-                    </TextView>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="News and events"
+                        android:textColor="#FFF"
+                        android:textSize="16sp"></TextView>
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:id="@+id/donations"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="4dp"
-                    android:background="@drawable/details_button_selector"
-                    android:clickable="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:id="@+id/donations">
+                    android:background="@drawable/details_button_selector"
+                    android:clickable="true">
+
                     <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:textSize="15sp"
-                        android:textColor="#FFF"
                         android:id="@+id/donations_text"
-                        android:text="Donations">
-                    </TextView>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Donations"
+                        android:textColor="#FFF"
+                        android:textSize="16sp"></TextView>
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:id="@+id/success_stories"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="4dp"
-                    android:background="@drawable/details_button_selector"
-                    android:clickable="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:id="@+id/success_stories">
+                    android:background="@drawable/details_button_selector"
+                    android:clickable="true">
+
                     <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:textSize="15sp"
-                        android:textColor="#FFF"
                         android:id="@+id/success_stories_text"
-                        android:text="Success Stories">
-                    </TextView>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Success Stories"
+                        android:textColor="#FFF"
+                        android:textSize="16sp"></TextView>
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:id="@+id/find_location"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="4dp"
-                    android:background="@drawable/details_button_selector"
-                    android:clickable="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:id="@+id/find_location">
+                    android:background="@drawable/details_button_selector"
+                    android:clickable="true">
+
                     <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:textSize="15sp"
-                        android:textColor="#FFF"
                         android:id="@+id/find_location_text"
-                        android:text="Find Location">
-                    </TextView>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Find Location"
+                        android:textColor="#FFF"
+                        android:textSize="16sp"></TextView>
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:id="@+id/about_us"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="4dp"
-                    android:background="@drawable/details_button_selector"
-                    android:clickable="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:id="@+id/about_us">
+                    android:background="@drawable/details_button_selector"
+                    android:clickable="true">
+
                     <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:textSize="15sp"
-                        android:textColor="#FFF"
                         android:id="@+id/about_us_text"
-                        android:text="About us">
-                    </TextView>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="About us"
+                        android:textColor="#FFF"
+                        android:textSize="16sp"></TextView>
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:id="@+id/contact_us"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="0dp"
-                    android:background="@drawable/details_button_selector"
-                    android:clickable="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:id="@+id/contact_us">
+                    android:background="@drawable/details_button_selector"
+                    android:clickable="true">
+
                     <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:textSize="15sp"
-                        android:textColor="#FFF"
                         android:id="@+id/contact_us_text"
-                        android:text="Contact us">
-                    </TextView>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Contact us"
+                        android:textColor="#FFF"
+                        android:textSize="16sp"></TextView>
                 </RelativeLayout>
 
             </LinearLayout>

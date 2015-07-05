@@ -88,23 +88,16 @@ public class ActivityUtils {
      * @param context application context
      * @param message alert message
      */
-    private void displayAlertDialog(Context context, String message) {
+    public static void showAlertDialog(Context context, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage(message);
         builder.setCancelable(true);
-        builder.setPositiveButton("Yes",
+        builder.setPositiveButton("Ok",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                     }
                 });
-        builder.setNegativeButton("No",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-
         AlertDialog alert = builder.create();
         alert.show();
     }
