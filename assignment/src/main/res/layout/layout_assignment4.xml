@@ -41,17 +41,19 @@
                     android:layout_marginTop="15dp"
                     android:orientation="vertical" >
                     <TextView
+                        android:id="@+id/assignment4_first_number_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="21dp"
                         android:text="First Number"
                         android:textColor="#4a4a4a"
-                        android:textSize="13sp" >
+                        android:textSize="18sp" >
                     </TextView>
                     <EditText
                         android:id="@+id/assignment4_first_number"
                         android:layout_width="fill_parent"
                         android:layout_height="45dp"
+                        android:textCursorDrawable="@null"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColor="#000"
@@ -60,9 +62,42 @@
                         android:layout_marginRight="20dp"
                         android:background="@drawable/edit_text_shape"
                         android:inputType="numberDecimal"
-                        android:textSize="16sp" >
+                        android:textSize="18sp" >
                     </EditText>
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:layout_marginTop="25dp"
+                    android:orientation="vertical" >
+                    <TextView
+                        android:id="@+id/assignment4_second_number_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="21dp"
+                        android:text="Second Number"
+                        android:textColor="#4a4a4a"
+                        android:textSize="18sp" >
+                    </TextView>
+                    <EditText
+                        android:id="@+id/assignment4_second_number"
+                        android:layout_width="fill_parent"
+                        android:layout_height="45dp"
+                        android:textCursorDrawable="@null"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textColor="#000"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/edit_text_shape"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:inputType="numberDecimal"
+                        android:textSize="18sp">
+                    </EditText>
+                </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -72,44 +107,13 @@
                     android:layout_marginBottom="15dp"
                     android:orientation="vertical" >
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="21dp"
-                        android:text="Second Number"
-                        android:textColor="#4a4a4a"
-                        android:textSize="13sp" >
-                    </TextView>
-                    <EditText
-                        android:id="@+id/assignment4_second_number"
-                        android:layout_width="fill_parent"
-                        android:layout_height="45dp"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColor="#000"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/edit_text_shape"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        android:inputType="numberDecimal"
-                        android:textSize="16sp">
-                    </EditText>
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="15dp"
-                    android:orientation="vertical" >
-                    <TextView
+                        android:id="@+id/assignment4_answer_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="21dp"
                         android:text="Answer"
                         android:textColor="#4a4a4a"
-                        android:textSize="13sp" >
+                        android:textSize="18sp" >
                     </TextView>
                     <EditText
                         android:id="@+id/assignment4_answer"
@@ -125,8 +129,8 @@
                         android:background="@drawable/edit_text_shape"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
-                        android:inputType="numberDecimal"
-                        android:textSize="16sp">
+                        android:inputType="number"
+                        android:textSize="18sp">
                     </EditText>
                 </LinearLayout>
 
@@ -144,15 +148,17 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="60dp"
+        android:layout_height="55dp"
         android:background="#333333"
         android:orientation="horizontal" >
         <RelativeLayout
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
             android:layout_marginRight="2dp"
             android:layout_gravity="center_vertical"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:background="@drawable/details_button_selector"
             android:clickable="true"
             android:layout_weight="1"
@@ -163,18 +169,20 @@
                 android:layout_centerInParent="true"
                 android:textSize="15sp"
                 android:textColor="#FFF"
-                android:id="@+id/edit_invoice_layout_add_text"
+                android:id="@+id/assignment4_add_button_text"
                 android:text="Add">
             </TextView>
         </RelativeLayout>
 
         <RelativeLayout
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
             android:layout_marginLeft="2dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="4dp"
             android:layout_gravity="center_vertical"
             android:layout_centerVertical="true"
             android:layout_width="fill_parent"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:layout_below="@+id/edit_invoice_add_button"
             android:background="@drawable/details_button_selector"
             android:clickable="true"
@@ -186,7 +194,7 @@
                 android:layout_centerInParent="true"
                 android:textSize="15sp"
                 android:textColor="#FFF"
-                android:id="@+id/edit_invoice_layout_mark_as_paid_text"
+                android:id="@+id/assignment4_subtract_button_text"
                 android:text="Subtract">
             </TextView>
         </RelativeLayout>

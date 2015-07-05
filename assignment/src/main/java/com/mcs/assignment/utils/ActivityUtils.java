@@ -1,6 +1,8 @@
 package com.mcs.assignment.utils;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Color;
@@ -79,6 +81,32 @@ public class ActivityUtils {
         textView.setLayoutParams(layoutParams);
 
         return textView;
+    }
+
+    /**
+     * Display AlertDialog
+     * @param context application context
+     * @param message alert message
+     */
+    private void displayAlertDialog(Context context, String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage(message);
+        builder.setCancelable(true);
+        builder.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        builder.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
 }

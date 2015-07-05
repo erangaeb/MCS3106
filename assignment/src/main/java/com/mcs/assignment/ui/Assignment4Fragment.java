@@ -1,7 +1,5 @@
 package com.mcs.assignment.ui;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,27 +8,38 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mcs.assignment.R;
 
 /**
- * Switch board fragment content
+ * Assignment4 fragment class
+ *
+ * @author eranga herath(erangae@gmail.com)
  */
 public class Assignment4Fragment extends Fragment implements View.OnClickListener {
+
+    // input field labels
+    private TextView firstNumberLabel;
+    private TextView secondNumberLabel;
+    private TextView answerLabel;
 
     // inputs fields
     private EditText firstNumber;
     private EditText secondNumber;
     private EditText answer;
 
+    // button texts
+    private TextView addText;
+    private TextView subtractText;
+
     // buttons
     private RelativeLayout add;
     private RelativeLayout subtract;
 
     // set custom font
-    Typeface typefaceThin;
-    Typeface typefaceBlack;
+    Typeface typeface;
 
 
     /**
@@ -50,6 +59,8 @@ public class Assignment4Fragment extends Fragment implements View.OnClickListene
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        typeface = Typeface.createFromAsset(this.getActivity().getAssets(), "fonts/vegur_2.otf");
+
         initUi();
     }
 
@@ -57,19 +68,38 @@ public class Assignment4Fragment extends Fragment implements View.OnClickListene
      * Initialize UI components
      */
     private void initUi() {
-        typefaceThin = Typeface.createFromAsset(this.getActivity().getAssets(), "fonts/vegur_2.otf");
-        typefaceBlack = Typeface.createFromAsset(this.getActivity().getAssets(), "fonts/Roboto-Black.ttf");
+        firstNumberLabel = (TextView) getActivity().findViewById(R.id.assignment4_first_number_label);
+        secondNumberLabel = (TextView) getActivity().findViewById(R.id.assignment4_second_number_label);
+        answerLabel = (TextView) getActivity().findViewById(R.id.assignment4_answer_label);
+
+        firstNumberLabel.setTypeface(typeface, Typeface.BOLD);
+        secondNumberLabel.setTypeface(typeface, Typeface.BOLD);
+        answerLabel.setTypeface(typeface, Typeface.BOLD);
 
         firstNumber = (EditText) getActivity().findViewById(R.id.assignment4_first_number);
         secondNumber = (EditText) getActivity().findViewById(R.id.assignment4_second_number);
         answer = (EditText) getActivity().findViewById(R.id.assignment4_answer);
 
+        firstNumber.setTypeface(typeface, Typeface.NORMAL);
+        secondNumber.setTypeface(typeface, Typeface.NORMAL);
+        answer.setTypeface(typeface, Typeface.NORMAL);
+
+        addText = (TextView) getActivity().findViewById(R.id.assignment4_add_button_text);
+        subtractText = (TextView) getActivity().findViewById(R.id.assignment4_subtract_button_text);
+
+        addText.setTypeface(typeface, Typeface.BOLD);
+        subtractText.setTypeface(typeface, Typeface.BOLD);
+
         add = (RelativeLayout) getActivity().findViewById(R.id.assignment4_add);
-        add.setOnClickListener(this);
         subtract = (RelativeLayout) getActivity().findViewById(R.id.assignment4_subtract);
+
         add.setOnClickListener(this);
+        subtract.setOnClickListener(this);
     }
 
+    /**
+     * Add two numbers and display in the answer field
+     */
     private void add() {
         String first = firstNumber.getText().toString().trim();
         String second = secondNumber.getText().toString().trim();
@@ -81,6 +111,9 @@ public class Assignment4Fragment extends Fragment implements View.OnClickListene
         }
     }
 
+    /**
+     * Subtract two numbers and display in the answer field
+     */
     private void subtract() {
         String first = firstNumber.getText().toString().trim();
         String second = secondNumber.getText().toString().trim();
@@ -95,48 +128,14 @@ public class Assignment4Fragment extends Fragment implements View.OnClickListene
     /**
      * {@inheritDoc}
      */
-    public void onResume() {
-        super.onResume();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public void onPause() {
-        super.onPause();
-    }
-
-
     @Override
     public void onClick(View v) {
         if (v == add) {
             add();
-            displayAlertDialog("Option");
         } else if (v == subtract) {
             subtract();
-            displayAlertDialog("Option");
         }
     }
 
-    private void displayAlertDialog(String message) {
-        AlertDialog.Builder builder1 = new AlertDialog.Builder(this.getActivity());
-        builder1.setMessage("Write your message here.");
-        builder1.setCancelable(true);
-        builder1.setPositiveButton("Yes",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-        builder1.setNegativeButton("No",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-
-        AlertDialog alert11 = builder1.create();
-        alert11.show();
-    }
 
 }
