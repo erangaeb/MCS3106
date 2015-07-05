@@ -34,11 +34,15 @@ public class Assignment3Fragment extends Fragment implements View.OnClickListene
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/vegur_2.otf");
+
         initUi();
     }
 
+    /**
+     * Initialize UI components
+     */
     private void initUi() {
-        typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/vegur_2.otf");
     }
 
     @Override
