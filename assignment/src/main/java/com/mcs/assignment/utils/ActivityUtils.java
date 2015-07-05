@@ -86,10 +86,12 @@ public class ActivityUtils {
     /**
      * Display AlertDialog
      * @param context application context
+     * @param title title message
      * @param message alert message
      */
-    public static void showAlertDialog(Context context, String message) {
+    public static void showAlertDialog(Context context, String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(title);
         builder.setMessage(message);
         builder.setCancelable(true);
         builder.setPositiveButton("Ok",

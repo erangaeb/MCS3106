@@ -11,7 +11,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mcs.assignment.R;
-
 import com.mcs.assignment.utils.ActivityUtils;
 
 /**
@@ -86,11 +85,11 @@ public class Assignment5bFragment extends Fragment implements View.OnClickListen
         String password = passwordEditText.getText().toString().trim();
 
         if (username.isEmpty() || password.isEmpty()) {
-            ActivityUtils.showAlertDialog(this.getActivity(), "Invalid credentials");
+            ActivityUtils.showAlertDialog(this.getActivity(), "Error", "Invalid credentials");
         } else if (username.equals(USERNAME) && password.equals(PASSWORD)) {
-            ActivityUtils.showAlertDialog(this.getActivity(), "Login success");
+            ActivityUtils.showAlertDialog(this.getActivity(), "Successful", "Login success");
         } else {
-            ActivityUtils.showAlertDialog(this.getActivity(), "Login fail");
+            ActivityUtils.showAlertDialog(this.getActivity(), "Error", "Login fail");
         }
 
     }
@@ -103,9 +102,9 @@ public class Assignment5bFragment extends Fragment implements View.OnClickListen
         String password = passwordEditText.getText().toString().trim();
 
         if (username.isEmpty() || password.isEmpty()) {
-            ActivityUtils.showAlertDialog(this.getActivity(), "Invalid credentials");
+            ActivityUtils.showAlertDialog(this.getActivity(), "Error", "Invalid credentials");
         } else {
-            ActivityUtils.showAlertDialog(this.getActivity(), "Successfully signed up");
+            ActivityUtils.showAlertDialog(this.getActivity(), "Successful", "Successfully signed up");
         }
     }
 

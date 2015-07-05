@@ -12,8 +12,6 @@ import android.widget.TextView;
 import com.mcs.assignment.R;
 import com.mcs.assignment.utils.ActivityUtils;
 
-import org.w3c.dom.Text;
-
 /**
  * Created by eranga on 6/29/15.
  */
@@ -105,21 +103,21 @@ public class Assignment5aFragment extends Fragment implements View.OnClickListen
     @Override
     public void onClick(View v) {
         if (v == latestPosts) {
-            ActivityUtils.showAlertDialog(this.getActivity(), "You have selected latest posts");
+            ActivityUtils.showAlertDialog(this.getActivity(), "Selected", "You have selected latest posts");
         } else if (v == problems) {
-            ActivityUtils.showAlertDialog(this.getActivity(), "You have selected problems");
+            ActivityUtils.showAlertDialog(this.getActivity(), "Selected", "You have selected problems");
         } else if (v == newsAndEvents) {
-            ActivityUtils.showAlertDialog(this.getActivity(), "You have selected news and events");
+            ActivityUtils.showAlertDialog(this.getActivity(), "Selected", "You have selected news and events");
         } else if (v == donations) {
-            ActivityUtils.showAlertDialog(this.getActivity(), "You have selected donations");
+            ActivityUtils.showAlertDialog(this.getActivity(), "Selected", "You have selected donations");
         } else if (v == successStories) {
-            ActivityUtils.showAlertDialog(this.getActivity(), "You have selected success stories");
+            ActivityUtils.showAlertDialog(this.getActivity(), "Selected", "You have selected success stories");
         } else if (v == findLocation) {
-            ActivityUtils.showAlertDialog(this.getActivity(), "You have selected find location");
+            ActivityUtils.showAlertDialog(this.getActivity(), "Selected", "You have selected find location");
         } else if (v == aboutUs) {
-            ActivityUtils.showAlertDialog(this.getActivity(), "You have selected about us");
+            ActivityUtils.showAlertDialog(this.getActivity(), "Selected", "You have selected about us");
         } else if (v == contactUs) {
-            ActivityUtils.showAlertDialog(this.getActivity(), "You have selected contact us");
+            ActivityUtils.showAlertDialog(this.getActivity(), "Selected", "You have selected contact us");
         }
     }
 }
