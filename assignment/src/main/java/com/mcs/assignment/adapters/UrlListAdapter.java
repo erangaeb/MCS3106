@@ -25,7 +25,7 @@ public class UrlListAdapter extends BaseAdapter {
     private ArrayList<String> urlList;
 
     // set custom font
-    Typeface face;
+    private Typeface typeface;
 
     /**
      * Initialize context variables
@@ -34,11 +34,12 @@ public class UrlListAdapter extends BaseAdapter {
         this.urlListActivity = activity;
         this.urlList = urlList;
 
-        face = Typeface.createFromAsset(urlListActivity.getAssets(), "fonts/vegur_2.otf");
+        typeface = Typeface.createFromAsset(urlListActivity.getAssets(), "fonts/vegur_2.otf");
     }
 
     /**
      * Get size of user list
+     *
      * @return userList size
      */
     @Override
@@ -48,6 +49,7 @@ public class UrlListAdapter extends BaseAdapter {
 
     /**
      * Get specific item from user list
+     *
      * @param i item index
      * @return list item
      */
@@ -58,6 +60,7 @@ public class UrlListAdapter extends BaseAdapter {
 
     /**
      * Get user list item id
+     *
      * @param i item index
      * @return current item id
      */
@@ -68,8 +71,9 @@ public class UrlListAdapter extends BaseAdapter {
 
     /**
      * Create list row view
-     * @param i index
-     * @param view current list item view
+     *
+     * @param i         index
+     * @param view      current list item view
      * @param viewGroup parent
      * @return view
      */
@@ -82,13 +86,12 @@ public class UrlListAdapter extends BaseAdapter {
         final String url = (String) getItem(i);
 
         if (view == null) {
-            // inflate sharing_list_row_layout
             LayoutInflater layoutInflater = (LayoutInflater) urlListActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = layoutInflater.inflate(R.layout.url_list_row_layout, viewGroup, false);
+            view = layoutInflater.inflate(R.layout.layout_url_list_row, viewGroup, false);
 
             holder = new ViewHolder();
             holder.url = (TextView) view.findViewById(R.id.url);
-            holder.url.setTypeface(face);
+            holder.url.setTypeface(typeface, Typeface.BOLD);
 
             view.setTag(holder);
         } else {

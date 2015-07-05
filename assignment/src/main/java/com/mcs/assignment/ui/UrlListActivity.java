@@ -2,16 +2,11 @@ package com.mcs.assignment.ui;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Typeface;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.mcs.assignment.R;
 import com.mcs.assignment.adapters.UrlListAdapter;
@@ -27,6 +22,9 @@ public class UrlListActivity extends Activity {
 
     private ArrayList<String> urlList;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +42,7 @@ public class UrlListActivity extends Activity {
      * Initialize UI components
      */
     private void initUi() {
-        urlListView = (ListView)findViewById(R.id.url_list);
+        urlListView = (ListView) findViewById(R.id.url_list);
 
         // add header and footer for list
         View headerView = View.inflate(this, R.layout.list_header, null);
@@ -54,7 +52,7 @@ public class UrlListActivity extends Activity {
     }
 
     /**
-     * Create sensor list
+     * Create url list
      */
     private void initUrlList() {
         adapter = new UrlListAdapter(this, urlList);
@@ -64,23 +62,22 @@ public class UrlListActivity extends Activity {
         urlListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position>0 && position <= urlList.size()) {
-                    handelListItemClick((String)adapter.getItem(position - 1));
+                if (position > 0 && position <= urlList.size()) {
+                    launchWebView((String) adapter.getItem(position - 1));
                 }
             }
         });
     }
 
     /**
-     * Navigate to share activity form here
+     * Navigate to WebActivity activity form here
      */
-    private void handelListItemClick(String url) {
+    private void launchWebView(String url) {
         // pass selected user and sensor to share activity
         Intent intent = new Intent(this, WebActivity.class);
         intent.putExtra("url", url);
         this.startActivity(intent);
         this.overridePendingTransition(R.anim.bottom_in, R.anim.stay_in);
     }
-
 
 }

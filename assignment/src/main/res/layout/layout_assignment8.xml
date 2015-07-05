@@ -8,16 +8,30 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:id="@+id/assignment1_camera"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center">
+        android:id="@+id/assignment8_browse"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/details_button_selector">
 
         <ImageView
-            android:id="@+id/browse"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/download"></ImageView>
+            android:id="@+id/assignment8_browse_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/collection"></ImageView>
+
+        <TextView
+            android:id="@+id/assignment8_browse_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Select url file"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
     </RelativeLayout>
 
 </LinearLayout>

@@ -1,18 +1,13 @@
 package com.mcs.assignment.ui;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.mcs.assignment.R;
 
@@ -30,12 +25,11 @@ import java.util.List;
  */
 public class Assignment8Fragment extends android.support.v4.app.Fragment implements View.OnClickListener {
 
-    RelativeLayout browseButton;
-
-    // use custom font here
+    private TextView browseText;
+    private RelativeLayout browseLayout;
     private Typeface typeface;
-    private List<String> urlList;
 
+    private List<String> urlList;
 
     private static final int REQUEST_FILE_CHOOSER = 2;
 
@@ -56,66 +50,95 @@ public class Assignment8Fragment extends android.support.v4.app.Fragment impleme
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/vegur_2.otf");
         initUi();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
 
+    /**
+     * Initialize UI components
+     */
+    private void initUi() {
+        browseText = (TextView) getActivity().findViewById(R.id.assignment8_browse_text);
+        browseText.setTypeface(typeface, Typeface.BOLD);
 
+        browseLayout = (RelativeLayout) getActivity().findViewById(R.id.assignment8_browse);
+        browseLayout.setOnClickListener(this);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_FILE_CHOOSER) {
-            String filePath = data.getData().getPath();
-
-            try {
-                File file = new File(filePath);
-                BufferedReader br = new BufferedReader(new FileReader(file));
-                String line;
-                urlList = new ArrayList<String>();
-                while ((line = br.readLine()) != null) {
-                    urlList.add(line);
-                }
-
-                // load url list
-                loadUrlList();
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (data != null) {
+                String filePath = data.getData().getPath();
+                getUrlsFromSelectedFile(filePath);
             }
         }
     }
 
-    private void initUi() {
-        typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/vegur_2.otf");
-
-        browseButton = (RelativeLayout) getActivity().findViewById(R.id.assignment1_camera);
-        browseButton.setOnClickListener(this);
-    }
-
-    private void openFolder() {
+    /**
+     * Show file chooser options available
+     */
+    private void browseFiles() {
         Intent i = new Intent(Intent.ACTION_GET_CONTENT);
         i.setType("*/*");
         startActivityForResult(i, REQUEST_FILE_CHOOSER);
     }
 
-    private void loadUrlList() {
+    /**
+     * Identifies urls stored in selected file
+     *
+     * @param filePath selected file path
+     */
+    private void getUrlsFromSelectedFile(String filePath) {
+        urlList = new ArrayList();
+
+        try {
+            File file = new File(filePath);
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            while ((line = br.readLine()) != null) {
+                urlList.add(line);
+            }
+
+            showUrlList();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * Launch UrlListActivity with selected file content
+     */
+    private void showUrlList() {
         Intent intent = new Intent(this.getActivity(), UrlListActivity.class);
-        intent.putStringArrayListExtra("url_list", (ArrayList<String>)urlList);
+        intent.putStringArrayListExtra("url_list", (ArrayList<String>) urlList);
 
         this.getActivity().startActivity(intent);
         this.getActivity().overridePendingTransition(R.anim.right_in, R.anim.stay_in);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void onClick(View v) {
-        if (v == browseButton) {
-            openFolder();
+        if (v == browseLayout) {
+            browseFiles();
         }
     }
-
 
 }
