@@ -3,7 +3,6 @@ package com.mcs.assignment.ui;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -11,19 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.model.TileOverlay;
 import com.mcs.assignment.R;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Random;
 
 /**
  * Display power usage summary
@@ -32,13 +27,13 @@ import java.util.Random;
  */
 public class Assignment6Fragment extends android.support.v4.app.Fragment implements View.OnClickListener {
 
-    RelativeLayout launchCameraLayout;
+    private TextView captureText;
+    private RelativeLayout captureLayout;
 
     // use custom font here
     private Typeface typeface;
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
-    private static final int REQUEST_FILE_CHOOSER = 2;
 
     /**
      * {@inheritDoc}
@@ -57,9 +52,13 @@ public class Assignment6Fragment extends android.support.v4.app.Fragment impleme
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/vegur_2.otf");
         initUi();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -68,32 +67,24 @@ public class Assignment6Fragment extends android.support.v4.app.Fragment impleme
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
 
-            saveIamge(imageBitmap);
-        } else if (requestCode == REQUEST_FILE_CHOOSER) {
-            String Fpath = data.getData().getPath();
-
-            try {
-                File file = new File(Fpath);
-                System.out.println(Fpath);
-                BufferedReader br = new BufferedReader(new FileReader(file));
-                String line;
-                while ((line = br.readLine()) != null) {
-                    //Log.i("Test", "text : " + text + " : end");
-                    System.out.println(line);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            saveImage(imageBitmap);
         }
     }
 
+    /**
+     * Initialize UI components
+     */
     private void initUi() {
-        typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/vegur_2.otf");
+        captureText = (TextView) getActivity().findViewById(R.id.assignment6_capture_text);
+        captureText.setTypeface(typeface, Typeface.BOLD);
 
-        launchCameraLayout = (RelativeLayout) getActivity().findViewById(R.id.assignment1_camera);
-        launchCameraLayout.setOnClickListener(this);
+        captureLayout = (RelativeLayout) getActivity().findViewById(R.id.assignment6_capture);
+        captureLayout.setOnClickListener(this);
     }
 
+    /**
+     * Launch camera intent
+     */
     private void launchCamera() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
@@ -101,17 +92,22 @@ public class Assignment6Fragment extends android.support.v4.app.Fragment impleme
         }
     }
 
-    private void saveIamge(Bitmap finalBitmap) {
+    /**
+     * Compress and save image in SD Card
+     *
+     * @param finalBitmap captured image
+     */
+    private void saveImage(Bitmap finalBitmap) {
         // create folder to save images
         String root = Environment.getExternalStorageDirectory().toString();
-        File myDir = new File(root + "/MCS3106");
-        myDir.mkdirs();
+        File directory = new File(root + "/MCS3106");
+        directory.mkdirs();
 
         // image name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = timeStamp + ".png";
 
-        File file = new File (myDir, imageFileName);
+        File file = new File(directory, imageFileName);
         if (file.exists()) file.delete();
         try {
             FileOutputStream out = new FileOutputStream(file);
@@ -125,15 +121,12 @@ public class Assignment6Fragment extends android.support.v4.app.Fragment impleme
         }
     }
 
-    public void openFolder() {
-        Intent i = new Intent(Intent.ACTION_GET_CONTENT);
-        i.setType("*/*");
-        startActivityForResult(i, REQUEST_FILE_CHOOSER);
-    }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void onClick(View v) {
-        if (v == launchCameraLayout) {
+        if (v == captureLayout) {
             // launch camera
             launchCamera();
         }

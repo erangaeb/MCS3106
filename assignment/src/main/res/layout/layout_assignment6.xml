@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#ffffff"
@@ -9,16 +8,30 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/assignment1_camera"
-        android:layout_gravity="center">
+        android:id="@+id/assignment6_capture"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/details_button_selector">
+
         <ImageView
-            android:id="@+id/camera"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/camera">
-        </ImageView>
+            android:id="@+id/assignment6_camera_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/camera"></ImageView>
+
+        <TextView
+            android:id="@+id/assignment6_capture_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Capture Image"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
     </RelativeLayout>
 
 </LinearLayout>
