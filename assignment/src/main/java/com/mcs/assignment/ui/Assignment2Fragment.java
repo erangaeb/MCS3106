@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.mcs.assignment.R;
 
@@ -22,7 +23,9 @@ import java.util.Date;
  */
 public class Assignment2Fragment extends android.support.v4.app.Fragment implements View.OnClickListener {
 
-    private LinearLayout topLayout;
+    private LinearLayout backgroundLinerLayout;
+    private TextView dateTextView;
+    private TextView timeTextView;
     private EditText dateEditText;
     private EditText timeEditText;
 
@@ -46,17 +49,30 @@ public class Assignment2Fragment extends android.support.v4.app.Fragment impleme
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/vegur_2.otf");
+
         initUi();
         showDateAndTime();
     }
 
+    /**
+     * Initialize UI components
+     */
     private void initUi() {
-        typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/vegur_2.otf");
+        backgroundLinerLayout = (LinearLayout) getActivity().findViewById(R.id.assignment2_top_layout);
+        backgroundLinerLayout.setOnClickListener(this);
 
-        topLayout = (LinearLayout) getActivity().findViewById(R.id.assignment2_top_layout);
-        topLayout.setOnClickListener(this);
+        dateTextView = (TextView) getActivity().findViewById(R.id.assignment2_date_label);
+        timeTextView = (TextView) getActivity().findViewById(R.id.assignment2_time_label);
+
+        dateTextView.setTypeface(typeface, Typeface.BOLD);
+        timeTextView.setTypeface(typeface, Typeface.BOLD);
+
         dateEditText = (EditText) getActivity().findViewById(R.id.assignment2_date_text);
         timeEditText = (EditText) getActivity().findViewById(R.id.assignment2_time_text);
+
+        dateEditText.setTypeface(typeface, Typeface.NORMAL);
+        timeEditText.setTypeface(typeface, Typeface.NORMAL);
     }
 
     /**
@@ -67,24 +83,35 @@ public class Assignment2Fragment extends android.support.v4.app.Fragment impleme
         timeEditText.setText(getTime());
     }
 
+    /**
+     * Get today's date in format (dd-MM-yyyy)
+     * @return date string
+     */
     private String getDate() {
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
         return dateFormat.format(calendar.getTime());
     }
 
+    /**
+     * Get current time in form (hh:mm a)
+     * @return time string
+     */
     private String getTime() {
         Calendar calendar = Calendar.getInstance();
         Date currentLocalTime = calendar.getTime();
-        DateFormat date = new SimpleDateFormat("hh:mm a");
+        DateFormat date = new SimpleDateFormat("hh:mm:ss a");
 
         return date.format(currentLocalTime);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void onClick(View v) {
-        if (v == topLayout) {
+        if (v == backgroundLinerLayout) {
             showDateAndTime();
         }
     }
